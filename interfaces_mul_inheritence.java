@@ -6,14 +6,18 @@ interface Bicycle {
 	void speedUp(int increment);
 }
 
-interface HornBicycle{
+interface HornBicycle extends Bicycle {
 	int x = 45;
 	void blowHornk3g();
 	void blowHornmhn();
 }
 
-class AvonCycle implements Bicycle, HornBicycle{
-	public int a= 5;
+abstract class Bicyclepart {
+	abstract void part();
+}
+
+class AvonCycle extends Bicyclepart implements Bicycle, HornBicycle{
+	public int a= 5; // this initialized variable is copy of var a. It is not replicating interface variable a=45.
 	public void blowHorn(){
 		System.out.println("pepe popo");
 	}
@@ -28,6 +32,9 @@ class AvonCycle implements Bicycle, HornBicycle{
 	}
 	public void blowHornmhn(){
 		System.out.println("Main hoon naa");
+	}
+	public void part(){
+		System.out.println("Buy a Bicycle Part");
 	}
 }
 
